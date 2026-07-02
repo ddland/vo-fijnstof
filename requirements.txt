@@ -1,0 +1,7 @@
+jupyter-book
+myst-parser
+sphinx-autodoc-typehints
+jupyter
+nbclient
+ipykernel
+linkify-it-py

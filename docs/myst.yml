@@ -1,0 +1,46 @@
+# Jupyter Book v2 configuration
+# Place this file at: docs/myst.yml
+# Build from the docs directory with: jupyter book build --html
+
+version: 1
+
+project:
+  title: "Fijnstof meten in het voortgezet onderwijs"
+  description: "Onderzoeken en ontwerpen in het voortgezet onderwijs toegepast op fijnstof metingen. Met ondersteuning van de Haagse Hogeschool"
+  keywords:
+    - fijnstof
+    - sps30
+    - sen63-c
+    - onderzoeken en ontwerpen
+  authors:
+    - name: Derek Land
+  github: "ddland/vo-fijnstof"
+  jupyter: true
+  # In Jupyter Book v2, the table of contents belongs here, not in _toc.yml.
+  # File extensions are required and paths are relative to this myst.yml file.
+  toc:
+    - file: index.md
+    - file: introductie.md
+    - file: methode.md
+      children:
+        - file: methode/thonny.md
+        - file: methode/sps30.md
+        - file: methode/sen63c.md
+    - file: metingen.md
+    - file: analyse.md
+    - file: docenten.md
+      children:
+        - file: docenten/lessenplan1.md
+site:
+  template: book-theme
+  options:
+    # Replace these with real files when you add branding assets.
+    logo_text: Technische Natuurkunde, HHS
+    # favicon: favicon.ico
+
+    # Keep folder paths in generated URLs, useful for Nginx and larger books.
+    folders: true
+    hide_authors: true
+
+  parts:
+    footer: "Derek Land (d.d.land@hhs.nl)"
