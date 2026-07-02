@@ -1,19 +1,21 @@
 # Lessenplan - Melanchthon Bergschenhoek
 
-Het doel van dit repository is het bevorderen van de onderzoeksvaardigheden van scholieren (en studenten). Het project is tot nu toe ingezet bij het Technasium [Melanchthon Berschenhoek](https://melanchthon.nl/bergschenhoek/algemene-informatie/technasium) voor een 4e klas HAVO/VWO. Om een idee te geven van de mogelijke inzet en opdeling van de weken hieronder een korte beschrijving van de activiteiten per week. De klas is in groepjes van 4 scholieren opgedeeld, waarbij elk groepje een Raspberry Pi Pico (W), fijnstofsensor (SPS30) en eventueel een 3d geprinte behuizing krijgt.  
+Het doel van deze repository is het bevorderen van de onderzoeksvaardigheden van scholieren en studenten. Het project is tot nu toe ingezet bij het Technasium [Melanchthon Bergschenhoek](https://melanchthon.nl/bergschenhoek/algemene-informatie/technasium) voor een 4e klas havo/vwo.
+
+Hieronder staat een korte beschrijving van de mogelijke inzet en verdeling over de weken. De klas wordt opgedeeld in groepjes van vier leerlingen. Elk groepje krijgt een Raspberry Pi Pico (W), een fijnstofsensor (SPS30) en eventueel een 3D-geprinte behuizing.
 
 ## Weekplanning
-|week | les inhoud (2x 90 minuten) |
-|-----|----------------------------|
-|1+ | Introductie project, oriëntatie en onderzoeksvaardigheden. Eerste kennismaking met de hardware. Formuleren onderzoeksvragen. |
-|2 | Meetplan opstellen om onderzoeksvragen te beantwoorden. Proefmetingen in lokaal uitvoeren, controleren met voorbeeld data of inlezen goed gaat. |
-|3* | Data verzamelen. |
-|4* | Data verzamelen, data analyse. |
-|5 | Data analyse afronden, eerste conclusies trekken. |
-|6 | Discussie, conclusie en vervolgonderzoek | 
-|7+ | Presenteren resultaten |
 
-Bij de weken met een + is in het verleden ondersteuning vanuit de 'opdrachtgever' geweest. Onderzoekers en docenten van de Haagse Hogeschool geven dan de kick off en helpen bij het beoordelen van de presentaties van de verschillende groepjes scholieren. 
+| week | lesinhoud (2x 90 minuten) |
+|------|----------------------------|
+| 1+ | Introductie van het project, oriëntatie en onderzoeksvaardigheden. Eerste kennismaking met de hardware. Formuleren van onderzoeksvragen. |
+| 2 | Meetplan opstellen om de onderzoeksvragen te beantwoorden. Proefmetingen in het lokaal uitvoeren. Met voorbeelddata controleren of het inlezen van data goed gaat. |
+| 3* | Data verzamelen. |
+| 4* | Data verzamelen en data analyseren. |
+| 5 | Data-analyse afronden en eerste conclusies trekken. |
+| 6 | Discussie, conclusie en vervolgonderzoek. |
+| 7+ | Resultaten presenteren. |
 
-De weken met een * kunnen ondersteund worden door studenten van de Haagse Hogeschool. Zij kunnen dan inhoudelijke ondersteuning bieden op het gebied van het stellen van de onderzoeksvragen, verzamelen van de data en verwerken van de data met Python. 
+Bij de weken met een + is in het verleden ondersteuning vanuit de opdrachtgever geweest. Onderzoekers en docenten van De Haagse Hogeschool geven dan de kick-off en helpen bij het beoordelen van de presentaties van de verschillende groepjes leerlingen.
 
+De weken met een * kunnen worden ondersteund door studenten van De Haagse Hogeschool. Zij kunnen inhoudelijke ondersteuning bieden bij het stellen van onderzoeksvragen, het verzamelen van data en het verwerken van data met Python.

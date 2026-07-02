@@ -1,6 +1,10 @@
 # Fijnstof meten in het voortgezet onderwijs
 
-In dit boek worden fijnstof metingen, uitgevoerd met verschillende sensoren, gebruikt om het onderzoeken in de HAVO en VWO te ondersteunen. Door te meten in de directe omgeving en gebruik te maken van de [Python](https://python.org) programmeertaal maken scholieren al vroeg kennis met de wetenschappelijke onderzoeksmethode toegepast op hun directe omgeving. Onderwerpen als 'wat is een meting', 'wanneer is een meting goed' of 'wat moet je opschrijven om een experiment te herhalen' kunnen vanuit het onderzoeken belicht worden. Daarnaast is er ruimte om ICT vaardigheden te ontwikkelen (programmeren, data-analyse, aansturen van hardware), maar ook de communicatie en plaatsing in de maatschappij kunnen aandracht krijgen. Hoe kan een meting helpen bij gewaarwording en bewustwording van een potentieel gevaarlijke blootstelling.
+In dit boek gebruiken we fijnstofmetingen met verschillende sensoren om onderzoek doen in havo en vwo te ondersteunen. Door te meten in de eigen omgeving en gebruik te maken van de programmeertaal [Python](https://python.org), maken leerlingen al vroeg kennis met de wetenschappelijke onderzoeksmethode.
+
+De leerlingen onderzoeken onderwerpen zoals: wat is een meting, wanneer is een meting goed en wat moet je opschrijven om een experiment later opnieuw te kunnen uitvoeren? Deze vragen worden gekoppeld aan onderzoek in hun directe omgeving.
+
+Daarnaast is er ruimte om ICT-vaardigheden te ontwikkelen, zoals programmeren, data-analyse en het aansturen van hardware. Ook communicatie en de maatschappelijke betekenis van metingen kunnen aan bod komen. Bijvoorbeeld: hoe kan een meting helpen om mensen bewust te maken van een mogelijk schadelijke blootstelling aan fijnstof?
 
 ## Inhoudsopgave
 

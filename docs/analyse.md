@@ -1,28 +1,36 @@
 # Uitwerking
-Als de data van de metingen opgeslagen is zijn er bestanden met erg veel data punten. Om inzicht te krijgen in de waarden die gemeten zijn moeten deze op een andere manier weergegeven worden. Een van de mogelijkheiden is om de gemeten waarden uit te zetten tegen de tijd. Op de x-as (horizontale as) staat dan de tijd, terwijl op de y-as (vertical as) de gemeten blootstelling, temperatuur en/of relatieve luchtvochtigheid staat. 
 
-``` {code}
-from matplotlib import rcParams, cycler
-import matplotlib.pyplot as plt
+Als de meetdata zijn opgeslagen, ontstaan er bestanden met veel datapunten. Om inzicht te krijgen in de gemeten waarden, moeten deze data op een duidelijke manier worden weergegeven.
+
+Een mogelijkheid is om de gemeten waarden uit te zetten tegen de tijd. Op de x-as (horizontale as) staat dan de tijd. Op de y-as (verticale as) staan bijvoorbeeld de gemeten fijnstofconcentratie, temperatuur en/of relatieve luchtvochtigheid.
+
+```python
 import numpy as np
-plt.ion()
+import matplotlib.pyplot as plt
 
-# Fixing random state for reproducibility
-np.random.seed(19680801)
+# lees data
+data = np.loadtxt('data/03_buiten.csv',
+                  delimiter=';',
+                  skiprows=1)
 
-N = 10
-data = [np.logspace(0, 1, 100) + np.random.randn(100) + ii for ii in range(N)]
-data = np.array(data).T
-cmap = plt.cm.coolwarm
-rcParams['axes.prop_cycle'] = cycler(color=cmap(np.linspace(0, 1, N)))
+# creeer een tijds-as
+t = np.asarray(data[:,0], dtype='datetime64[s]')
+t = t - t[0] # laat de meting op t=0 beginnen
 
+# plot de eerste column uitgezet tegen de tijd
+plt.plot(t, data[:,1], label='PM 1.0')
+plt.plot(t, data[:,2], label='PM 2.5')
+plt.plot(t, data[:,3], label='PM 4.0')
+plt.plot(t, data[:,4], label='PM 10')
 
-from matplotlib.lines import Line2D
-custom_lines = [Line2D([0], [0], color=cmap(0.), lw=4),
-                Line2D([0], [0], color=cmap(.5), lw=4),
-                Line2D([0], [0], color=cmap(1.), lw=4)]
+# teken grid, assen
+plt.grid()
+plt.xlabel('tijd [s]')
+plt.ylabel('fijnstof [ug/m]')
+plt.legend(loc=0)
+plt.gcf().autofmt_xdate()
 
-fig, ax = plt.subplots(figsize=(10, 5))
-lines = ax.plot(data)
-ax.legend(custom_lines, ['Cold', 'Medium', 'Hot']);
+# sla het figuur op
+plt.savefig('simple_fig.jpg')
+plt.show()
 ```
