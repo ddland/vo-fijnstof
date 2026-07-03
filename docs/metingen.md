@@ -1,7 +1,6 @@
 # Metingen
 
-Nu de libraries zijn geïnstalleerd, kun je metingen uitvoeren.
-
+Nu de libraries zijn geïnstalleerd, kun je metingen uitvoeren. All de voorbeelden staan ook in de folder [voorbeelden](https://github.com/ddland/vo-fijnstof/tree/main/voorbeelden) van het github-repository.
 ## Weergave van data in Thonny
 
 Lees de meetwaarden van de sensor uit en geef ze weer in de Shell van Thonny. De code kan worden gekopieerd naar het `editor`-scherm van Thonny. Daarna kun je de code uitvoeren met de groene `run`-knop.

@@ -19,7 +19,7 @@ Daarnaast meet de SEN63-C ook de temperatuur, luchtvochtigheid en $CO_2$-concent
 
 ## Software
 
-De software voor de sensoren staat in de [library folder](../lib/). Deze software is zo geschreven dat je altijd de volgende output van de sensoren terugkrijgt:
+De software voor de sensoren staat in de [library folder van het bijbehorende github repository](https://github.com/ddland/vo-fijnstof/tree/main/lib). Deze software is zo geschreven dat je altijd de volgende output van de sensoren terugkrijgt:
 
 ```
 tijd [s]; pm1.0 [ug/m3]; pm2.5 [ug/m3]; pm4.0 [ug/m3]; pm10 [ug/m3]; temperatuur [degC];  rel. luchtvochtigheid [%]; CO2 [ppm]
@@ -29,7 +29,7 @@ De bestanden `sen6x.py` en `sps30.py` bevatten de code die nodig is om de hardwa
 
 De bestanden `meting_sen6x.py` en `meting_sps30.py` zorgen ervoor dat de output van de sensoren er hetzelfde uitziet. Als je met een SPS30 meet, worden er evenveel data-elementen teruggegeven. Niet elke waarde is dan echt gemeten. De SPS30 meet geen temperatuur, luchtvochtigheid en $CO_2$. Daarom geeft de sensor voor die waarden `NaN` terug. Dat betekent: Not a Number.
 
-Om de sensor te gebruiken, moeten alle bestanden uit de [library folder](../lib/) naar de Raspberry Pi Pico worden gekopieerd. Plaats ze daar in de map `lib/`. Zie hiervoor het hoofdstuk [Thonny](../methode/thonny).
+Om de sensor te gebruiken, moeten alle bestanden uit de [library folder van het bijbehorende github repository](https://github.com/ddland/vo-fijnstof/tree/main/lib) naar de Raspberry Pi Pico worden gekopieerd. Plaats ze daar in de map `lib/`. Zie hiervoor het hoofdstuk [Thonny](../methode/thonny).
 
 ## Aansluiting
 

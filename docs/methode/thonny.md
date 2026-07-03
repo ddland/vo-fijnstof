@@ -54,7 +54,19 @@ Door in het menu `view` of `weergave` de optie `files` of `bestanden` aan te vin
 
 Met de rechtermuisknop klikken op een bestand of map opent ook een pop-upmenu. Daarmee kun je op een makkelijke manier bestanden verplaatsen tussen de Raspberry Pi Pico en de computer. Zo kan je door rechts te klikken op de 'lib' folder in het `This computer` scherm, in 1 keer de hele folder naar de Raspberry Pi Pico kopieren.
 
-## MicroPython
+## Python Libraries
+
+Voor python zijn veel modules beschikbaar die het makkelijk maken om met data te werken, grafieken weer te geven en wetenschappelijke berekeninge uit te voeren. Deze modules kan je vanuit Thonny installeren. 
+Om de modules te installeren moet je op de `Local Python` werken, controleer dit in de informatie balk rechts onderin het scherm. 
+
+:::{image} ../../images/thonny_7.png
+:width: 100%
+:::
+
+Door in het pop-scherm `matplotlib`, `numpy` en `pandas` te installeren kan je daarna gebruik maken van deze modules.
+
+
+# MicroPython
 
 Als je met de Raspberry Pi Pico aan de slag gaat, moet Thonny de code uitvoeren met de Python-versie die op de Raspberry Pi Pico draait. Deze versie heet MicroPython. De code lijkt veel op gewone Python, maar er zijn andere bibliotheken beschikbaar. Veel standaardbibliotheken zijn niet aanwezig.
 
