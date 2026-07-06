@@ -18,9 +18,9 @@ Aansluiting (groene kant boven):
 
 """
 
-class SPS(SPS30):
-    data_header = ['tijd s','pm 1.0 ug/m3','pm 2.5 ug/m3','pm 4.0 ug/m3','pm 10 ug/m3']
-    waarden = [0,0,0,0,0]
+class Sensor(SPS30):
+    data_header = ['tijd [s]','pm 1.0 [ug/m3]','pm 2.5 [ug/m3]','pm 4.0 [ug/m3]','pm 10 [ug/m3]', 'temp [degC]', 'rel. hum [%]', 'CO2 [ppm]']
+    waarden = len(data_header)*[math.nan]
     
     def meet_data(self):
         self.read_data()

@@ -35,5 +35,7 @@ Om de sensor te gebruiken, moeten alle bestanden uit de [library folder van het 
 
 De sensoren moeten worden aangesloten volgens het aansluitschema. Sluit niet beide sensoren tegelijk aan op één Raspberry Pi Pico. De Pico kan daarvoor niet genoeg stroom leveren via de pinnen.
 
+Let op met aansluiten dat de Rasbperry Pi Pico niet verbonden is met de computer. Zodra de Pico verbonden is staat er spanning over de pinnen en is het makkelijk om kortsluiting te veroorzaken. Controleer de juiste voeding (3.3V of 5V) en let goed op de aansluiting van de aarde (GND) en voedingspinnen. Kortsluiting is zo gemaakt en verkort de levensduur van de sensoren en microcontrollers.
+
 * [SPS30](methode/sps30.md)
 * [SEN63-C](methode/sen63c.md)

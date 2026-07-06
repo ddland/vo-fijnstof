@@ -28,9 +28,11 @@ project:
         - file: methode/sen63c.md
     - file: metingen.md
     - file: analyse.md
+    - file: faq.md
     - file: docenten.md
       children:
         - file: docenten/lessenplan1.md
+
 site:
   template: book-theme
   options:

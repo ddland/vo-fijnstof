@@ -23,11 +23,20 @@ class SPS30:
             'number pm 0.5', 'number pm 1.0', 'number pm 2.5', 'number pm 4.0',
             'number pm 10', 'typical size']
     
-    def __init__(self, i2c, print_output=False):
+    def __init__(self, i2c, print_output=False, wdt=None):
         self.i2c = i2c
+        self.wdt = wdt
         self.output = print_output
         self.found = self.__findi2c()
         self.starttime = time.time()
+        
+    def wdt_feed(self):
+        """
+        Feed the watchdog. 
+        """
+        if self.wdt:
+            self.wdt.feed()
+        
     
     def write_read(self, cmd, nbytes=60):
         if len(cmd) == 2:
@@ -38,26 +47,30 @@ class SPS30:
     def start_measurement(self):
         cmd = bytearray([0x00, 0x10, 0x03, 0x00, self.calc_crc8([0x03, 0x00])])
         max_tries = 0
+        self.wdt_feed()
         while max_tries < 10:
             try:
                 self.i2c.writeto(self.address, cmd) # measurement mode
-                time.sleep(0.5) # wait till everthing is ready
+                time.sleep(1.0) # wait till everthing is ready
                 self.cleanup(dt=10)
                 max_tries = 11
+                self.wdt_feed()
             except OSError as e:
                 max_tries += 1
+                time.sleep(2.0)
+                self.wdt_feed()
                 print('trying to configure %d/10' %(max_tries))
                 print(e)
-                time.sleep(0.5)
         if max_tries == 10:
             raise OSError("Not possible to configure sensor. Something is wrong...")
-
         self.read_data() # first measurement usualy doesn't look goodself.i2c.writeto(self.address, cmd) # measurement mode
     
     def cleanup(self, dt=10):
         self.starttime = time.time()
         self.i2c.writeto(self.address, bytearray([0x56, 0x07])) #cleanup
-        time.sleep(dt)
+        for ii in range(dt):
+            time.sleep(1.0)
+            self.wdt_feed()
         self.read_data()
         
     def gen_array(self, command):
@@ -74,6 +87,7 @@ class SPS30:
         data = self.write_read(cmd)
         cleandata = self.crc_array(data)
         self.last_measurement = []
+        self.wdt_feed()
         for ii in range(len(cleandata)//2):
             self.last_measurement.append(self.calcFloat(cleandata[2*ii] + cleandata[2*ii+1]))
         if (time.time() - self.starttime) % (259200) == 0: # cleanup every 3 days

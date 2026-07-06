@@ -2,35 +2,23 @@
 
 Als de meetdata zijn opgeslagen, ontstaan er bestanden met veel datapunten. Om inzicht te krijgen in de gemeten waarden, moeten deze data op een duidelijke manier worden weergegeven.
 
+## Thonny
+
+Belanrijk in Thonny is er op te letten welke Python versie je gebruikt. Voor de analyse van de data is geen microcontroller nodig, maar juist een scherm. Micro-python is hier dus niet geschikt. Let er op dat rechts onderin Thonny nu de 'Local Python' interpreter gekozen is.
+
+
+## Metingen uitgezet tegen de tijd
 Een mogelijkheid is om de gemeten waarden uit te zetten tegen de tijd. Op de x-as (horizontale as) staat dan de tijd. Op de y-as (verticale as) staan bijvoorbeeld de gemeten fijnstofconcentratie, temperatuur en/of relatieve luchtvochtigheid.
+In het voorbeeld figuur worden er 3 figuren aangemaakt, elk met dezelfde tijds-as. Hierdoor is het makkelijk om verschillende variabelen met elkaar op hetzelfde tijdstip te vergelijken. 
 
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-
-# lees data
-data = np.loadtxt('data/03_buiten.csv',
-                  delimiter=';',
-                  skiprows=1)
-
-# creeer een tijds-as
-t = np.asarray(data[:,0], dtype='datetime64[s]')
-t = t - t[0] # laat de meting op t=0 beginnen
-
-# plot de eerste column uitgezet tegen de tijd
-plt.plot(t, data[:,1], label='PM 1.0')
-plt.plot(t, data[:,2], label='PM 2.5')
-plt.plot(t, data[:,3], label='PM 4.0')
-plt.plot(t, data[:,4], label='PM 10')
-
-# teken grid, assen
-plt.grid()
-plt.xlabel('tijd [s]')
-plt.ylabel('fijnstof [ug/m]')
-plt.legend(loc=0)
-plt.gcf().autofmt_xdate()
-
-# sla het figuur op
-plt.savefig('simple_fig.jpg')
-plt.show()
+``` {literalinclude} ../voorbeelden/analyse_plot_data.py
 ```
+De grafiek ziet er dan zo uit:
+```{image} ../images/analyse_data.jpg
+:width: 70%
+:align: center
+```
+
+Door zo van elke meting een grafiek te maken kan je verschillen bestuderen. Is een meting op een ander moment (of locatie) heel anders? Zijn de omstandigheden (temperatuur, luchtvochtigheid) voor beide meetseries gelijk? 
+
+

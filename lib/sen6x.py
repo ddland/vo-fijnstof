@@ -134,7 +134,7 @@ class SEN6X:
         else:
             return None
             
-    def start(self):
+    def start_measurement(self):
         self.__I2C_write('start_measurement')
         self.mode = 'measurement'
         
@@ -213,9 +213,9 @@ class SEN6X:
                 nox = self.parse_crc(data[21], data[22], data[23])/10
                 co2 = self.parse_crc(data[24], data[25], data[26])
             elif self.name == 'SEN63C':
-                co2 = self.parse_crc(data[18], data[19], data[20])/10
+                co2 = self.parse_crc(data[18], data[19], data[20])
                 nox = -1
-            data = (pm1p0, pm2p5, pm4p0, pm10p0, amb_hum, amb_temp, co2, nox)
+            data = (pm1p0, pm2p5, pm4p0, pm10p0, amb_temp, amb_hum, co2, nox)
         self.clean()
         return data
             
@@ -294,7 +294,7 @@ class SEN6X:
 if __name__ == "__main__":
     i2c0 = machine.I2C(0, sda=machine.Pin(0), scl=machine.Pin(1), freq=100000)
     sen = SEN6X(i2c0)
-    sen.start()
+    sen.start_measurement()
     sen.clean(force=True) # force a cleanup of the sensor
     #for ii in range(5):
     running = True
