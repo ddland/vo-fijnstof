@@ -4,7 +4,7 @@ import time
 # Importeer de SEN63C of SEN66 bibliotheek
 # zet een # voor de regel die je niet nodig hebt!
 from meting_sen6x import Sensor            # SEN63-C fijnstof sensor
-#from meting_sps30 import SPS30 as Sensor  # SPS30 fijnstof sensor
+#from meting_sps30 import  Sensor          # SPS30 fijnstof sensor
 
 # maak verbinding met de fijnstof sensor
 # sensor verbonden met pin 0 en 1 (sda en scl) op de Raspberrypi Pico.

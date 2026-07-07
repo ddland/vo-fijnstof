@@ -1,9 +1,10 @@
 from sps30 import SPS30
-import time 
+import time
+import math
 
 """
 Class voor de Sensirion SPS30
-Aansluiting (groene kant boven):
+Aansluiting (groene kant onder):
 
  ---------------
  |       12345 |
@@ -25,4 +26,4 @@ class Sensor(SPS30):
     def meet_data(self):
         self.read_data()
         self.waarden[0] = time.time()
-        self.waarden[1:] = self.last_measurement[:4]
+        self.waarden[1:5] = self.last_measurement[:4]
