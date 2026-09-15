@@ -1,15 +1,21 @@
 import network
 import socket
-from melanchthon_sps30 import SPS
 
-## verbind de SPS30 met I2C
-i2c = machine.I2C(0, sda = machine.Pin(0), scl = machine.Pin(1), freq=100000)
-sps = SPS(i2c)
+# Importeer de SEN63C of SEN66 bibliotheek
+# zet een # voor de regel die je niet nodig hebt!
+from meting_sen6x import Sensor            # SEN63-C fijnstof sensor
+#from meting_sps30 import SPS30 as Sensor  # SPS30 fijnstof sensor
+
+# maak verbinding met de fijnstof sensor
+# sensor verbonden met pin 0 en 1 (sda en scl) op de Raspberrypi Pico.
+i2c = machine.I2C(1, sda = machine.Pin(2), scl = machine.Pin(3), freq=100000)
+sensor = Sensor(i2c)
+sensor.start_measurement()
 
 
 ## Configureer het accesspoint
 # verbind en daarna kan je naar 192.168.4.1 om een meting uit te voeren
-ssid = 'HHS-MELACHTHON'
+ssid = 'vo-fijnstof'
 password = '123456789'
 
 ap = network.WLAN(network.AP_IF)
@@ -19,9 +25,6 @@ ap.active(True)
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('', 80))
 s.listen(5)
-
-## start de SPS30 metingen (duurt 10 seconden)
-sps.start_measurement()
 
 ## templates voor de website met en zonder data
 
@@ -78,8 +81,8 @@ while run:
         conn, addr = s.accept()
         request = conn.recv(1024).decode('utf-8').lower()
         if request.find('get /measure?') >= 0:
-            sps.get_data()
-            html = webpage_data %tuple(sps.waarden)
+            sensor.meet_data()
+            html = webpage_data %tuple(sensor.waarden[:5])
         else:
             html = webpage_start
         conn.send(html)

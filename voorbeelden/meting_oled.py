@@ -9,9 +9,9 @@ from meting_sen6x import Sensor            # SEN63-C fijnstof sensor
 
 # maak verbinding met de fijnstof sensor
 # sensor verbonden met pin 0 en 1 (sda en scl) op de Raspberrypi Pico.
-i2c = machine.I2C(0, sda = machine.Pin(0), scl = machine.Pin(1), freq=100000)
+i2c = machine.I2C(1, sda = machine.Pin(2), scl = machine.Pin(3), freq=100000)
 # scherm verbonden met pin 6 en 7 (sda en scl) op de Raspberrypi Pico
-i2c_oled = machine.I2C(1, sda = machine.Pin(6), scl = machine.Pin(7))
+i2c_oled = machine.I2C(0, sda = machine.Pin(0), scl = machine.Pin(1))
 # kies voor een vierkant (64x64) scherm of rechthoekig (128x64) pixels.
 #display = ssd1306.SSD1306_I2C(64,64, i2c_oled)
 display = ssd1306.SSD1306_I2C(128,64, i2c_oled)

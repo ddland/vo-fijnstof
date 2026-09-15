@@ -37,7 +37,7 @@ class GPS:
                 if self.parser.valid:
                     self.gpsdata = [self.datetime(self.parser.date, self.parser.timestamp),
                                     self.parser.latitude[0], self.parser.latitude[1],
-                                    self.parser.longitude[0], self.parser.latitude[1],
+                                    self.parser.longitude[0], self.parser.longitude[1],
                                     time.time_ns()]
                     
             else:

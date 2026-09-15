@@ -27,7 +27,8 @@ project:
         - file: methode/sps30.md
         - file: methode/sen63c.md
     - file: metingen.md
-    - file: analyse.md
+    - file: uitwerking.md
+    - file: conclusies.md
     - file: faq.md
     - file: docenten.md
       children:
