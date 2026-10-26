@@ -9,7 +9,7 @@ from meting_sen6x import Sensor            # SEN63-C fijnstof sensor
 
 # maak verbinding met de fijnstof sensor
 # sensor verbonden met pin 0 en 1 (sda en scl) op de Raspberrypi Pico.
-i2c = machine.I2C(1, sda = machine.Pin(2), scl = machine.Pin(3), freq=100000)
+i2c = machine.I2C(0, sda = machine.Pin(0), scl = machine.Pin(1), freq=100000)
 
 delay = 5 # wacht 5 seconden na elke meting
 separator = ";" # scheidings teken tussen de verschillende meetwaarden
@@ -44,10 +44,12 @@ while measure:
     try:
         # zolang ctrl-c niet ingedrukt...
         sensor.meet_data()
+        # plak alle datapunten uit sensor.meet_data achter elkaar
+        # met een separator als scheidingsteken.
         data = separator.join(str(ii) for ii in sensor.waarden)
-        print(data, file=fh)
-        print(data)
-        fh.flush() # schrijf de data echt weg naar de file
+        print(data, file=fh) # schrijf data naar file
+        print(data)          # geef data in shell weer  
+        fh.flush()           # schrijf de data echt weg naar de file
         time.sleep(delay)
     except KeyboardInterrupt:
         measure = 0

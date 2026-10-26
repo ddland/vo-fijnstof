@@ -8,7 +8,7 @@ from meting_sen6x import Sensor            # SEN63-C fijnstof sensor
 
 # maak verbinding met de fijnstof sensor
 # sensor verbonden met pin 0 en 1 (sda en scl) op de Raspberrypi Pico.
-i2c = machine.I2C(1, sda = machine.Pin(2), scl = machine.Pin(3), freq=100000)
+i2c = machine.I2C(0, sda = machine.Pin(0), scl = machine.Pin(1), freq=100000)
 sensor = Sensor(i2c)
 sensor.start_measurement()
 
